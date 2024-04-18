@@ -1,0 +1,56 @@
+<div class="example-container">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">book</mat-icon>
+            <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+        </button>
+  
+        <h1 class="example-app-name">MIS LIBROS</h1>
+  
+        <span class="example-spacer"></span>
+
+        <mat-menu #menu="matMenu">
+            
+        </mat-menu>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container">
+        <mat-sidenav #sidenav style="width: 300px"  mode="side">
+
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/reserva" style="cursor: pointer">
+                <mat-icon>search</mat-icon>
+                <span>RESERVAS</span>
+            </button>
+
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="/pages/galeria" style="cursor: pointer">
+                <mat-icon>star_rate</mat-icon>
+                <span>GALERIA LIBROS</span>
+            </button>
+
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item (click)="sidenav.toggle()" routerLink="pages/libro" style="cursor: pointer">
+                <mat-icon>healing</mat-icon>
+                <span>REGISTRO DE LIBROS</span>
+            </button>
+            <mat-divider></mat-divider>
+        </mat-sidenav>
+  
+        <mat-sidenav-content>
+
+            <!-- Componentes-->
+
+
+            <!-- app.routes.ts -->
+            <router-outlet>
+
+            </router-outlet>
+
+        </mat-sidenav-content>
+  
+  
+    </mat-sidenav-container>
+  
+  </div>

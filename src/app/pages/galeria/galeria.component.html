@@ -1,0 +1,22 @@
+
+
+
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2%">
+
+    <mat-card *ngFor="let m of libros">
+        <mat-card-header>
+            <mat-card-title>{{m.autor}}</mat-card-title>
+            <mat-card-subtitle>{{m.titulo}}</mat-card-subtitle>
+        </mat-card-header>
+    
+        <!-- imagen -->
+    
+        <img [src]="m.fotoUrl" alt="Imagen libros" width="200" height="300">
+    
+        <mat-card-content>
+            <p>CODIGO DE LIBRO ES : {{m.codigo}}</p>
+        </mat-card-content>
+       
+      </mat-card>
+
+  </div>

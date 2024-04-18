@@ -1,0 +1,53 @@
+<div class="example-container mat-elevation-z8">
+
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
+      </mat-form-field>
+    </div>
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="idLibro">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> IDLIBRO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idLibro}} </mat-cell>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="titulo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> TITULO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="autor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> AUTOR </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.autor}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="codigo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> CODIGO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.codigo}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let element">        
+          <button mat-button color="primary" (click)="abrirDialogo(element)" ><mat-icon>edit</mat-icon></button>
+          <button mat-button color="accent" (click)="eliminar(element)"><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  <br>
+  
+  <button mat-fab color="accent" (click)="abrirDialogo()" style="float: right; margin-right: 20px">
+    <mat-icon>add</mat-icon>
+  </button>
